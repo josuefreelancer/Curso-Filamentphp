@@ -18,7 +18,9 @@ class TimesheetResource extends Resource
 {
     protected static ?string $model = Timesheet::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Employee Management';
+    protected static ?int $navigationSort= 3;
+    protected static ?string $navigationIcon = 'heroicon-o-table-cells';
 
     public static function form(Form $form): Form
     {
@@ -30,7 +32,7 @@ class TimesheetResource extends Resource
                     ->relationship(name: 'user', titleAttribute: 'name'),
                 Select::make('type')
                             ->options([
-                                'work' => 'Worwing',
+                                'work' => 'Working',
                                 'pause' => 'In pause',
                             ]),
                 Forms\Components\DateTimePicker::make('day_in')
